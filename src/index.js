@@ -50,6 +50,13 @@ const applyPrefixes = (object) => {
       };
     }
 
+    if (originalKey === 'position' && object[originalKey] === 'sticky' && !isSupported('position', 'sticky')) {
+      return {
+        ...styleObject,
+        [originalKey]: `${prefix.css}sticky`
+      };
+    }
+
     if (originalKey === 'transition') {
       const animatableValuesObject = ANIMATABLE_VALUES.reduce((animatableValues, animatableValue) => {
         const kebabValue = toKebabCase(animatableValue);

@@ -11,7 +11,13 @@ const styles = prefix({
     display: 'block'
   },
   container: {
-    transition: 'column-count 200ms'
+    transition: 'column-count 200ms',
+    position: 'relative',
+    height: '200vh'
+  },
+  sticky: {
+    position: 'sticky',
+    top: 0,
   }
 });
 
@@ -19,7 +25,7 @@ console.log(styles.container);
 
 const App = () => {
   return (
-    <div>
+    <div style={styles.container}>
       <h1>
         App
       </h1>
@@ -30,6 +36,7 @@ const App = () => {
       >
         I do nothing!
       </button>
+      <p style={styles.sticky}>I'm sticky!</p>
     </div>
   );
 };
